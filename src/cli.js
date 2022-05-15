@@ -1,6 +1,7 @@
 import generateNumber from './generateNumber.js';
 import { answerQuestion, compareAnswer, getAnswer } from './index.js';
 import generateExpression from './generateExpression.js';
+import gcd from './gcd.js';
 
 export const greeting = () => {
   console.log('Welcome to the Brain Games!');
@@ -14,6 +15,7 @@ export const greeting = () => {
 const rules = {
   even: 'Answer "yes" if the number is even, otherwise answer "no".',
   calc: 'What is the result of the expression?',
+  gcd: 'Find the greatest common divisor of given numbers.',
 };
 
 export const declareRules = (game) => {
@@ -42,6 +44,21 @@ export const calcCliTurn = (name) => {
   const expressionObject = generateExpression();
   const rightAnswer = expressionObject.answer;
   answerQuestion(expressionObject.expression);
+  const userAnswer = Number(getAnswer());
+  const result = compareAnswer(userAnswer, rightAnswer);
+  if (result) {
+    console.log('Correct!');
+  } else {
+    console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${rightAnswer}. Let's try again, ${name}!`);
+  }
+  return result;
+};
+
+export const gcdCliTurn = (name) => {
+  const firstNumber = generateNumber(1, 100);
+  const secondNumber = generateNumber(1, 100);
+  const rightAnswer = gcd(firstNumber, secondNumber);
+  answerQuestion(`${firstNumber}, ${secondNumber}`);
   const userAnswer = Number(getAnswer());
   const result = compareAnswer(userAnswer, rightAnswer);
   if (result) {
