@@ -1,11 +1,11 @@
-import readlineSync from 'readline-sync';
-
 import generateNumber from './generateNumber.js';
+import { answerQuestion, compareAnswer, getAnswer } from './index.js';
+import generateExpression from './generateExpression.js';
 
 export const greeting = () => {
   console.log('Welcome to the Brain Games!');
   console.log('May I have your name?');
-  const name = readlineSync.question('Your answer: ');
+  const name = getAnswer();
 
   console.log(`Hello, ${name}!`);
   return name;
@@ -13,6 +13,7 @@ export const greeting = () => {
 
 const rules = {
   even: 'Answer "yes" if the number is even, otherwise answer "no".',
+  calc: 'What is the result of the expression?',
 };
 
 export const declareRules = (game) => {
@@ -26,13 +27,27 @@ export const evenCliTurn = (name) => {
   const number = generateNumber(1, 100);
   const rightAnswer = number % 2 === 0;
   const rightAnswerText = rightAnswer ? 'yes' : 'no';
-  console.log(`Question: ${number}`);
-  const userAnswerText = readlineSync.question('Your answer: ');
-  const result = rightAnswerText === userAnswerText;
+  answerQuestion(number);
+  const userAnswerText = getAnswer();
+  const result = compareAnswer(userAnswerText, rightAnswerText);
   if (result) {
     console.log('Correct!');
   } else {
     console.log(`${userAnswerText} is wrong answer ;(. Correct answer was ${rightAnswerText}. Let's try again, ${name}!`);
+  }
+  return result;
+};
+
+export const calcCliTurn = (name) => {
+  const expressionObject = generateExpression();
+  const rightAnswer = expressionObject.answer;
+  answerQuestion(expressionObject.expression);
+  const userAnswer = Number(getAnswer());
+  const result = compareAnswer(userAnswer, rightAnswer);
+  if (result) {
+    console.log('Correct!');
+  } else {
+    console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${rightAnswer}. Let's try again, ${name}!`);
   }
   return result;
 };
