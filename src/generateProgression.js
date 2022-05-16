@@ -12,6 +12,4 @@ const generateProgression = () => {
   };
 };
 
-console.log(generateProgression());
-
 export default generateProgression;

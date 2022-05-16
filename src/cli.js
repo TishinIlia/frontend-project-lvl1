@@ -3,6 +3,7 @@ import { answerQuestion, compareAnswer, getAnswer } from './index.js';
 import generateExpression from './generateExpression.js';
 import gcd from './gcd.js';
 import generateProgression from './generateProgression.js';
+import sieveOfEratosfen from './sieveOfEratosfen.js';
 
 export const greeting = () => {
   console.log('Welcome to the Brain Games!');
@@ -18,6 +19,7 @@ const rules = {
   calc: 'What is the result of the expression?',
   gcd: 'Find the greatest common divisor of given numbers.',
   progression: 'What number is missing in the progression?',
+  prime: 'Answer "yes" if given number is prime. Otherwise answer "no".',
 };
 
 export const declareRules = (game) => {
@@ -80,6 +82,21 @@ export const progressionCliTurn = (name) => {
     console.log('Correct!');
   } else {
     console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${progression.answer}. Let's try again, ${name}!`);
+  }
+  return result;
+};
+
+export const primeCliTurn = (name) => {
+  const number = generateNumber(1, 100);
+  const rightAnswer = sieveOfEratosfen(number);
+  const rightAnswerText = rightAnswer ? 'yes' : 'no';
+  answerQuestion(number);
+  const userAnswerText = getAnswer();
+  const result = compareAnswer(userAnswerText, rightAnswerText);
+  if (result) {
+    console.log('Correct!');
+  } else {
+    console.log(`${userAnswerText} is wrong answer ;(. Correct answer was ${rightAnswerText}. Let's try again, ${name}!`);
   }
   return result;
 };
