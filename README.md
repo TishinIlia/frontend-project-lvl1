@@ -9,4 +9,7 @@
 [![Brain Calc]()](https://asciinema.org/a/F4A0YLJRGK4KcqHa5vGlpvmPo)
 
 ## Brain GCD game
-[![Brain GCD]()](  https://asciinema.org/a/X6yQFXQhD8VkLGFzl1hPYX9Fu)
+[![Brain GCD]()](https://asciinema.org/a/X6yQFXQhD8VkLGFzl1hPYX9Fu)
+
+## Brain Progression game
+[![Brain Progression]()](https://asciinema.org/a/BXLiUR0c4NUVXlnXBTC9VZJmJ)
