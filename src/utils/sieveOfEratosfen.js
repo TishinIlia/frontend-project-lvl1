@@ -11,6 +11,4 @@ const sieveOfEratosfen = (number) => {
   return prime[number];
 };
 
-console.log(sieveOfEratosfen(9));
-
 export default sieveOfEratosfen;
