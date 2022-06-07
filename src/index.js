@@ -4,6 +4,6 @@ export const answerQuestion = (text) => console.log(`Question: ${text}`);
 
 export const getAnswer = (text) => readlineSync.question(text);
 
-export const getGameAnswer = () => readlineSync.question('Your answer: ');
+export const getUserAnswer = () => readlineSync.question('Your answer: ');
 
 export const compareAnswer = (userAnswer, rightAnswer) => userAnswer === rightAnswer;

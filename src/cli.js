@@ -1,5 +1,5 @@
 import {
-  answerQuestion, compareAnswer, getAnswer, getGameAnswer,
+  answerQuestion, compareAnswer, getAnswer, getUserAnswer,
 } from './index.js';
 
 export const greeting = () => {
@@ -27,7 +27,7 @@ export const declareRules = (game) => {
 export const cliTurn = (rightAnswerObject) => {
   const rightAnswerText = rightAnswerObject.rightAnswer;
   answerQuestion(rightAnswerObject.inputCondition);
-  const userAnswerText = getGameAnswer();
+  const userAnswerText = getUserAnswer();
   const result = compareAnswer(userAnswerText, rightAnswerText);
   if (result) {
     console.log('Correct!');
