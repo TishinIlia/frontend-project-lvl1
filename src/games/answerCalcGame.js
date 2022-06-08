@@ -1,6 +1,6 @@
 import generateExpression from '../utils/generateExpression.js';
 
-const calcAnswer = () => {
+const answerCalcGame = () => {
   const expressionObject = generateExpression();
   return {
     inputCondition: expressionObject.expression,
@@ -8,4 +8,4 @@ const calcAnswer = () => {
   };
 };
 
-export default calcAnswer;
+export default answerCalcGame;

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import launcher from '../src/launcher.js';
+import launchGame from '../src/index.js';
 
-launcher('gcd');
+launchGame('gcd');

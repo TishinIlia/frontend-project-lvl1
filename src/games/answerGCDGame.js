@@ -1,7 +1,7 @@
 import generateNumber from '../utils/generateNumber.js';
 import gcd from '../utils/gcd.js';
 
-const gcdAnswer = () => {
+const answerGCDGame = () => {
   const firstNumber = generateNumber(1, 100);
   const secondNumber = generateNumber(1, 100);
   const rightAnswer = String(gcd(firstNumber, secondNumber));
@@ -11,4 +11,4 @@ const gcdAnswer = () => {
   };
 };
 
-export default gcdAnswer;
+export default answerGCDGame;

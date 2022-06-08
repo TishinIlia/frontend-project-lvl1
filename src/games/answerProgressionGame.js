@@ -1,6 +1,6 @@
 import generateProgression from '../utils/generateProgression.js';
 
-const progressionAnswer = () => {
+const answerProgressionGame = () => {
   const progression = generateProgression();
   return {
     inputCondition: progression.sequence,
@@ -8,4 +8,4 @@ const progressionAnswer = () => {
   };
 };
 
-export default progressionAnswer;
+export default answerProgressionGame;
