@@ -6,10 +6,9 @@ const generateProgression = () => {
   const length = generateNumber(5, 11);
   const sequence = Array.from({ length }, (_, i) => start + step * i);
   const chosenElement = generateNumber(0, length);
-  const before = `${sequence.slice(0, chosenElement).join(' ')} `;
-  const after = ` ${sequence.slice(chosenElement + 1).join(' ')}`;
+  const newSequence = [...sequence.slice(0, chosenElement), '..', ...sequence.slice(chosenElement + 1)];
   return {
-    sequence: `${before || ''}..${after || ''}`,
+    sequence: `${newSequence.join(' ')}`,
     answer: sequence[chosenElement],
   };
 };
