@@ -1,10 +1,17 @@
-import generateExpression from '../utils/generateExpression.js';
+import generateNumber from '../utils/generateNumber.js';
 
 const answerCalcGame = () => {
-  const expressionObject = generateExpression();
+  const operations = {
+    '+': (first, second) => first + second,
+    '-': (first, second) => first - second,
+    '*': (first, second) => first * second,
+  };
+  const firstNumber = generateNumber(1, 100);
+  const secondNumber = generateNumber(1, 100);
+  const chooseOperation = generateNumber(0, 3);
   return {
-    inputCondition: expressionObject.expression,
-    rightAnswer: String(expressionObject.answer),
+    inputCondition: `${firstNumber} ${Object.keys(operations)[chooseOperation]} ${secondNumber}`,
+    rightAnswer: String(Object.values(operations)[chooseOperation](firstNumber, secondNumber)),
   };
 };
 
