@@ -32,15 +32,6 @@ export const declareRules = (game) => {
   return new Error('Неверное имя игры');
 };
 
-export const cliTurn = (rightAnswerObject) => {
-  const rightAnswerText = rightAnswerObject.rightAnswer;
-  console.log(`Question: ${rightAnswerObject.inputCondition}`);
-  const userAnswerText = getAnswer('Your answer: ');
-  const result = userAnswerText === rightAnswerText;
-  if (result) {
-    console.log('Correct!');
-  } else {
-    console.log(`'${userAnswerText}' is wrong answer ;(. Correct answer was '${rightAnswerText}'.`);
-  }
-  return result;
-};
+export const askQuestion = (questionText) => console.log(`Question: ${questionText}`);
+export const sayAnswerRight = () => console.log('Correct!');
+export const sayAnswerWrong = (userAnswerText, rightAnswerText) => console.log(`'${userAnswerText}' is wrong answer ;(. Correct answer was '${rightAnswerText}'.`);
