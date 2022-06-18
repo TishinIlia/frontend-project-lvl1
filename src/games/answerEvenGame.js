@@ -1,4 +1,4 @@
-import generateNumber from '../utils/generateNumber.js';
+import { generateNumber } from '../utils/utils.js';
 
 const answerEvenGame = () => {
   const number = generateNumber(1, 100);

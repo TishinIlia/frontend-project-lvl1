@@ -6,7 +6,7 @@ const NUMBER_OF_NEEDED_RIGHT_ANSWERS = 3;
 
 const gameTurn = (rightAnswerObject) => {
   const rightAnswerText = rightAnswerObject.rightAnswer;
-  askQuestion();
+  askQuestion(rightAnswerObject.inputCondition);
   const userAnswerText = getAnswer('Your answer: ');
   const result = userAnswerText === rightAnswerText;
   if (result) {

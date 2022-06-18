@@ -1,5 +1,4 @@
-import generateNumber from '../utils/generateNumber.js';
-import gcd from '../utils/gcd.js';
+import { generateNumber, gcd } from '../utils/utils.js';
 
 const answerGCDGame = () => {
   const firstNumber = generateNumber(1, 100);

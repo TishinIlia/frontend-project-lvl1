@@ -1,5 +1,4 @@
-import generateNumber from '../utils/generateNumber.js';
-import sieveOfEratosfen from '../utils/sieveOfEratosfen.js';
+import { generateNumber, sieveOfEratosfen } from '../utils/utils.js';
 
 const answerPrimeGame = () => {
   const number = generateNumber(1, 100);

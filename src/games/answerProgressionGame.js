@@ -1,4 +1,4 @@
-import generateProgression from '../utils/generateProgression.js';
+import { generateProgression } from '../utils/utils.js';
 
 const answerProgressionGame = () => {
   const progression = generateProgression();

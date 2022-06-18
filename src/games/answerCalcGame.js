@@ -1,4 +1,4 @@
-import generateNumber from '../utils/generateNumber.js';
+import { generateNumber } from '../utils/utils.js';
 
 const answerCalcGame = () => {
   const operations = {
