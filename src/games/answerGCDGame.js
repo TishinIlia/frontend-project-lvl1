@@ -10,4 +10,6 @@ const answerGCDGame = () => {
   };
 };
 
+export const GCD_GAME_RULES = 'Find the greatest common divisor of given numbers.';
+
 export default answerGCDGame;

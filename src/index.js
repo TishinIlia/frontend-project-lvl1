@@ -3,33 +3,44 @@ import {
 } from './cli.js';
 import gameState from './gameState.js';
 
-import answerCalcGame from './games/answerCalcGame.js';
-import answerEvenGame from './games/answerEvenGame.js';
-import answerGCDGame from './games/answerGCDGame.js';
-import answerPrimeGame from './games/answerPrimeGame.js';
-import answerProgressionGame from './games/answerProgressionGame.js';
+import answerCalcGame, { CALC_GAME_RULES } from './games/answerCalcGame.js';
+import answerEvenGame, { EVEN_GAME_RULES } from './games/answerEvenGame.js';
+import answerGCDGame, { GCD_GAME_RULES } from './games/answerGCDGame.js';
+import answerPrimeGame, { PRIME_GAME_RULES } from './games/answerPrimeGame.js';
+import answerProgressionGame, { PROGRESSION_GAME_RULES } from './games/answerProgressionGame.js';
 
-const GAME = {
-  calc: answerCalcGame,
-  even: answerEvenGame,
-  gcd: answerGCDGame,
-  prime: answerPrimeGame,
-  progression: answerProgressionGame,
+const GAME_DATA = {
+  calc: {
+    rightAnswerFunc: answerCalcGame,
+    rules: CALC_GAME_RULES,
+  },
+  even: {
+    rightAnswerFunc: answerEvenGame,
+    rules: EVEN_GAME_RULES,
+  },
+  gcd: {
+    rightAnswerFunc: answerGCDGame,
+    rules: GCD_GAME_RULES,
+  },
+  prime: {
+    rightAnswerFunc: answerPrimeGame,
+    rules: PRIME_GAME_RULES,
+  },
+  progression: {
+    rightAnswerFunc: answerProgressionGame,
+    rules: PROGRESSION_GAME_RULES,
+  },
 };
 
 const launchGame = (game) => {
-  try {
-    const name = greeting();
-    declareRules(game);
-    const result = gameState(GAME[game]);
-    if (result) {
-      congrats(name);
-      return;
-    }
-    fail(name);
-  } catch (e) {
-    console.error(e);
+  const name = greeting();
+  const result = gameState(GAME_DATA[game].rightAnswerFunc);
+  declareRules(GAME_DATA[game].rules);
+  if (result) {
+    congrats(name);
+    return;
   }
+  fail(name);
 };
 
 export default launchGame;

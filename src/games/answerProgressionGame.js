@@ -8,4 +8,6 @@ const answerProgressionGame = () => {
   };
 };
 
+export const PROGRESSION_GAME_RULES = 'What number is missing in the progression?';
+
 export default answerProgressionGame;

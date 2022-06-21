@@ -9,4 +9,6 @@ const answerEvenGame = () => {
   };
 };
 
+export const EVEN_GAME_RULES = 'Answer "yes" if the number is even, otherwise answer "no".';
+
 export default answerEvenGame;

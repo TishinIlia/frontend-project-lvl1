@@ -17,19 +17,8 @@ export const greeting = () => {
   return name;
 };
 
-const RULE = {
-  even: 'Answer "yes" if the number is even, otherwise answer "no".',
-  calc: 'What is the result of the expression?',
-  gcd: 'Find the greatest common divisor of given numbers.',
-  progression: 'What number is missing in the progression?',
-  prime: 'Answer "yes" if given number is prime. Otherwise answer "no".',
-};
-
-export const declareRules = (game) => {
-  if (RULE[game]) {
-    console.log(RULE[game]);
-  }
-  return new Error('Неверное имя игры');
+export const declareRules = (gameRules) => {
+  console.log(gameRules);
 };
 
 export const askQuestion = (questionText) => console.log(`Question: ${questionText}`);

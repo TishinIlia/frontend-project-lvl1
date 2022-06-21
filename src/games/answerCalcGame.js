@@ -15,4 +15,6 @@ const answerCalcGame = () => {
   };
 };
 
+export const CALC_GAME_RULES = 'What is the result of the expression?';
+
 export default answerCalcGame;
