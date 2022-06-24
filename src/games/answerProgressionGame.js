@@ -1,7 +1,7 @@
-import { generateGameProgression } from '../utils/utils.js';
+import { createConditionsGameProgression } from '../utils/utils.js';
 
 const answerProgressionGame = () => {
-  const progression = generateGameProgression();
+  const progression = createConditionsGameProgression();
   return {
     question: progression.sequence,
     answer: String(progression.answer),

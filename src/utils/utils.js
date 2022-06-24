@@ -23,7 +23,7 @@ export const generateProgression = () => {
   return Array.from({ length }, (_, i) => start + step * i);
 };
 
-export const generateGameProgression = () => {
+export const createConditionsGameProgression = () => {
   const progression = generateProgression();
   const chosenElement = generateNumber(0, progression.length);
   const newSequence = [...progression.slice(0, chosenElement), '..', ...progression.slice(chosenElement + 1)];
