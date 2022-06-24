@@ -10,8 +10,8 @@ const answerCalcGame = () => {
   const secondNumber = generateNumber(1, 100);
   const chooseOperation = generateNumber(0, 3);
   return {
-    inputCondition: `${firstNumber} ${Object.keys(operations)[chooseOperation]} ${secondNumber}`,
-    rightAnswer: String(Object.values(operations)[chooseOperation](firstNumber, secondNumber)),
+    question: `${firstNumber} ${Object.keys(operations)[chooseOperation]} ${secondNumber}`,
+    answer: String(Object.values(operations)[chooseOperation](firstNumber, secondNumber)),
   };
 };
 

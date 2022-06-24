@@ -1,7 +1,4 @@
-import {
-  greeting, declareRules, congrats, fail,
-} from './cli.js';
-import gameState from './gameState.js';
+import readlineSync from 'readline-sync';
 
 import answerCalcGame, { CALC_GAME_RULES } from './games/answerCalcGame.js';
 import answerEvenGame, { EVEN_GAME_RULES } from './games/answerEvenGame.js';
@@ -11,36 +8,48 @@ import answerProgressionGame, { PROGRESSION_GAME_RULES } from './games/answerPro
 
 const GAME_DATA = {
   calc: {
-    rightAnswerFunc: answerCalcGame,
+    getGameData: answerCalcGame,
     rules: CALC_GAME_RULES,
   },
   even: {
-    rightAnswerFunc: answerEvenGame,
+    getGameData: answerEvenGame,
     rules: EVEN_GAME_RULES,
   },
   gcd: {
-    rightAnswerFunc: answerGCDGame,
+    getGameData: answerGCDGame,
     rules: GCD_GAME_RULES,
   },
   prime: {
-    rightAnswerFunc: answerPrimeGame,
+    getGameData: answerPrimeGame,
     rules: PRIME_GAME_RULES,
   },
   progression: {
-    rightAnswerFunc: answerProgressionGame,
+    getGameData: answerProgressionGame,
     rules: PROGRESSION_GAME_RULES,
   },
 };
 
 const launchGame = (game) => {
-  const name = greeting();
-  const result = gameState(GAME_DATA[game].rightAnswerFunc);
-  declareRules(GAME_DATA[game].rules);
-  if (result) {
-    congrats(name);
-    return;
+  const countRounds = 3;
+  const { rules, getGameData } = GAME_DATA[game];
+  console.log('Welcome to the Brain Games!');
+  const name = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${name}!`);
+
+  console.log(rules);
+  for (let i = 0; i < countRounds; i += 1) {
+    const { question, answer } = getGameData();
+    console.log(`Question: ${question}`);
+    const userAnswer = readlineSync.question('Your answer: ');
+    if (userAnswer !== answer) {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`);
+      console.log(`Let's try again, ${name}!`);
+      return;
+    }
+    console.log('Correct!');
   }
-  fail(name);
+
+  console.log(`Congratulations, ${name}!`);
 };
 
 export default launchGame;

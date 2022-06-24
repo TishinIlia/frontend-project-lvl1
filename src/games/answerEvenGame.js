@@ -4,8 +4,8 @@ const answerEvenGame = () => {
   const number = generateNumber(1, 100);
   const rightAnswer = number % 2 === 0;
   return {
-    inputCondition: number,
-    rightAnswer: rightAnswer ? 'yes' : 'no',
+    question: number,
+    answer: rightAnswer ? 'yes' : 'no',
   };
 };
 

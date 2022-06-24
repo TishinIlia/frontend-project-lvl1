@@ -3,8 +3,8 @@ import { generateGameProgression } from '../utils/utils.js';
 const answerProgressionGame = () => {
   const progression = generateGameProgression();
   return {
-    inputCondition: progression.sequence,
-    rightAnswer: String(progression.answer),
+    question: progression.sequence,
+    answer: String(progression.answer),
   };
 };
 

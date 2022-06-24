@@ -4,8 +4,8 @@ const answerPrimeGame = () => {
   const number = generateNumber(1, 100);
   const rightAnswer = sieveOfEratosfen(number);
   return {
-    inputCondition: number,
-    rightAnswer: rightAnswer ? 'yes' : 'no',
+    question: number,
+    answer: rightAnswer ? 'yes' : 'no',
   };
 };
 
